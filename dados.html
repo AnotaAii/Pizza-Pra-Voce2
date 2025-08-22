@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg" href="images/logo06.png">
+    <title>Pizza Pra Você (Delivery) - Dados para Entrega</title>
+    <link type="text/css" href="css/delivry.css" rel="stylesheet">
+    <style type="text/css">
+        /* Estilos específicos para a página de dados */
+        .dados-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 2px solid #cecece;
+            margin-bottom: 100px;
+        }
+
+        .dados-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #e2ba2d, #34543b);
+            border-radius: 15px;
+            color: #ffffff;
+        }
+
+        .dados-header h2 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 15px;
+            border: 1px solid #e2ba2d;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-number {
+            background: #34543b;
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .section-header h3 {
+            color: #34543b;
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34543b;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #cecece;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #e2ba2d;
+            box-shadow: 0 0 0 3px rgba(226, 186, 45, 0.1);
+        }
+
+        .input-group input::placeholder {
+            color: #999;
+        }
+
+        .resumo-pedido {
+            background: #fff;
+            border: 2px solid #e2ba2d;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .resumo-pedido h3 {
+            color: #34543b;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .produto-resumo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .produto-imagem {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid #cecece;
+        }
+
+        .produto-info {
+            flex: 1;
+        }
+
+        .produto-selecionado {
+            font-weight: 600;
+            color: #34543b;
+            margin: 0 0 5px 0;
+        }
+
+        .preco-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .preco-valor {
+            color: #077c22;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn-continuar {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #077c22, #3ac93f);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .btn-continuar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(7, 124, 34, 0.3);
+        }
+
+        .pizza-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Header customizado para a página de dados */
+        .dados-header-custom {
+            background: linear-gradient(135deg, #34543b, #e2ba2d);
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dados-header-custom .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid #ffffff;
+            overflow: hidden;
+        }
+
+        .dados-header-custom h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .dados-header-custom .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .dados-container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .produto-resumo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .produto-imagem {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dados-header-custom">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo06.png" alt="Pizza Pra Você Logo">
+            </div>
+            <h1>🍕 Pizza Pra Você (Delivery)</h1>
+            <p class="subtitle">Dados para Entrega</p>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="dados-container">
+                <div class="dados-header">
+                    <h2><span class="pizza-icon">📦</span>Dados para Entrega<span class="pizza-icon">🍕</span></h2>
+                </div>
+
+                <form id="dadosForm">
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-number">1</span>
+                            <h3>DADOS PESSOAIS</h3>
+                        </div>
+                        <p class="section-description">Preencha os dados para finalizar sua compra com segurança.</p>
+                        
+                        <div class="input-group">
+                            <label for="nomeCompleto">Nome completo</label>
+                            <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Ex: João Silva" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="celular">Celular / WhatsApp</label>
+                            <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="section-header">
+                            <span class="section-number">2</span>
+                            <h3>ENDEREÇO</h3>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" id="logradouro" name="logradouro" placeholder="Ex: Rua das Flores" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" name="bairro" placeholder="Ex: Centro" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" name="numero" placeholder="Ex: 123" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" name="complemento" placeholder="Ex: Apto 301">
+                        </div>
+                    </div>
+
+                    <div class="resumo-pedido">
+                        <h3>🍕 Resumo do Pedido</h3>
+                        <div class="produto-resumo">
+                            <img id="imagemProduto" src="images/namorados0001.png" alt="Produto selecionado" class="produto-imagem">
+                            <div class="produto-info">
+                                <p class="produto-selecionado" id="produtoSelecionado">Pizza Grande 8 Fatias</p>
+                                <div class="preco-total">
+                                    <span class="preco-valor" id="precoTotal">R$ 19,99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-continuar">CONTINUAR PARA PAGAMENTO →</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Recuperar dados do produto selecionado da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const produto = urlParams.get("produto") || "Pizza Grande 8 Fatias";
+        const preco = urlParams.get("preco") || "19,99";
+        const imagem = urlParams.get("imagem") || "namorados0001.png";
+        const checkoutUrl = urlParams.get("checkoutUrl") || "https://go.goatpayments.com.br/8nndexk5fg";
+
+        // Atualizar informações do produto
+        document.getElementById("produtoSelecionado").textContent = produto;
+        document.getElementById("precoTotal").textContent = `R$ ${preco}`;
+        
+        const imagemElement = document.getElementById("imagemProduto");
+        if (imagem.startsWith("http")) {
+            imagemElement.src = imagem;
+        } else {
+            imagemElement.src = `images/${imagem}`;
+        }
+
+        // Máscara para telefone
+        document.getElementById("celular").addEventListener("input", function(e) {
+            let value = e.target.value.replace(/\D/g, "");
+            value = value.replace(/(\d{2})(\d)/, "($1) $2");
+            value = value.replace(/(\d{5})(\d)/, "$1-$2");
+            e.target.value = value;
+        });
+
+        // Envio do formulário
+        document.getElementById("dadosForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            // Validar campos obrigatórios
+            const nomeCompleto = document.getElementById("nomeCompleto").value.trim();
+            const celular = document.getElementById("celular").value.trim();
+            const logradouro = document.getElementById("logradouro").value.trim();
+            const bairro = document.getElementById("bairro").value.trim();
+            const numero = document.getElementById("numero").value.trim();
+
+            if (!nomeCompleto || !celular || !logradouro || !bairro || !numero) {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+
+            if (celular.length < 14) {
+                alert("Por favor, digite um número de celular válido.");
+                return;
+            }
+
+            // Redirecionar para página de checkout externa
+            window.location.href = checkoutUrl;
+        });
+    </script>
+</body>
+</html>
+
